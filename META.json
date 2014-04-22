@@ -58,7 +58,7 @@
    "provides" : {
       "Mojolicious::Plugin::Nour::Database" : {
          "file" : "lib/Mojolicious/Plugin/Nour/Database.pm",
-         "version" : "0.08"
+         "version" : "0.09"
       }
    },
    "release_status" : "stable",
@@ -73,7 +73,7 @@
          "web" : "https://github.com/sharabash/mojolicious-plugin-nour-database"
       }
    },
-   "version" : "0.08",
+   "version" : "0.09",
    "x_authority" : "cpan:AMIRITE",
    "x_contributors" : [
       "Nour Sharabash <nour.sharabash@gmail.com>"

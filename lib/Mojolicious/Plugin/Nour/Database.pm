@@ -22,9 +22,16 @@ sub register {
             return $self->_nour_db->switch_to( @args ) if @args;
             return $self->_nour_db;
         } );
+
+        $app->attr( __worker_pid => sub { 0 } );
+        $app->helper( worker_pid => sub { my $self = shift; $self->app->__worker_pid( @_ ); return $self->app->__worker_pid; } );
+        $app->worker_pid( $$ );
+
         $app->hook( before_dispatch => sub { # this hook is important for assigning handlers for each worker
-            my ( $c, @args ) = @_;
-            $app->_connect_db unless $app->db->dbh->ping;
+            my ( $c, @args, $spawn ) = @_;
+            $spawn = 1 if $$ ne $app->worker_pid;
+            $app->worker_pid( $$ ) if $spawn;
+            $app->_connect_db if $spawn or not $app->db->dbh->ping;
         } );
     };
 }
@@ -43,7 +50,7 @@ Mojolicious::Plugin::Nour::Database - Adds an easy to use database handle to you
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 USAGE
 

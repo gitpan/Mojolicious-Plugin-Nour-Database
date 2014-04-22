@@ -32,7 +32,7 @@ no_index:
 provides:
   Mojolicious::Plugin::Nour::Database:
     file: lib/Mojolicious/Plugin/Nour/Database.pm
-    version: '0.08'
+    version: '0.09'
 requires:
   Mojo::Base: '0'
   Nour::Database: '0'
@@ -41,7 +41,7 @@ resources:
   bugtracker: https://github.com/sharabash/mojolicious-plugin-nour-database/issues
   homepage: https://metacpan.org/release/Mojolicious-Plugin-Nour-Database
   repository: git://github.com/sharabash/mojolicious-plugin-nour-database.git
-version: '0.08'
+version: '0.09'
 x_authority: cpan:AMIRITE
 x_contributors:
   - 'Nour Sharabash <nour.sharabash@gmail.com>'
